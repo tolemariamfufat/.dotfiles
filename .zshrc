@@ -126,7 +126,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-zellij setup --generate-completion zsh
 
 alias z='zellij'
 
