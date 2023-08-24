@@ -1,3 +1,9 @@
+--  _____     _      __  __            _                 
+-- |_   _|__ | | ___|  \/  | __ _ _ __(_) __ _ _ __ ___  
+--   | |/ _ \| |/ _ \ |\/| |/ _` | '__| |/ _` | '_ ` _ \ 
+--   | | (_) | |  __/ |  | | (_| | |  | | (_| | | | | | |
+--   |_|\___/|_|\___|_|  |_|\__,_|_|  |_|\__,_|_| |_| |_|
+
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
 if true then return {} end
