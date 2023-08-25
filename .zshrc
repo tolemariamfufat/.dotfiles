@@ -111,7 +111,15 @@ gcom() {
     git add .
     git commit -m "$1"
     }
-
+gcom() {
+	git add .
+	git commit -m "$1"
+	}
+lazyg() {
+	git add .
+	git commit -m "$1"
+	git push
+}
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/to/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

@@ -35,7 +35,11 @@ gcom() {
 	git add .
 	git commit -m "$1"
 }
-
+lazyg() {
+	git add .
+	git commit -m "$1"
+	git push
+}
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/to/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
@@ -50,10 +54,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-zellij setup --generate-completion bash
 
 alias z='zellij'
 
 . "$HOME/.cargo/env"
 
-toilet ToleMariam
+figlet ToleMariam
