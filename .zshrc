@@ -139,3 +139,5 @@ alias z='zellij'
 
 # while true; do printf '%s\r' "$(date)"; done
 figlet ToleMariam
+
+#spawnOnce "notify-log $HOME/.log/notify.log"
