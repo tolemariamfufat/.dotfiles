@@ -21,10 +21,28 @@
 --   end,
 -- }
 return {
+<<<<<<< HEAD
   {
     "goolord/alpha-nvim",
     config = function()
       require("alpha").setup(require("alpha.themes.dashboard").config)
     end,
   },
+=======
+  "goolord/alpha-nvim",
+  opts = function(_, opts)
+    local logo = [[
+
+	  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+	  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+	  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+	  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+	  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+	  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+
+	                   [ I AM ]
+    ]]
+    opts.section.header.val = vim.split(logo, "\n", { trimempty = true })
+  end,
+>>>>>>> refs/remotes/origin/main
 }
