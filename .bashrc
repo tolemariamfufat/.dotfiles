@@ -59,4 +59,6 @@ alias z='zellij'
 
 . "$HOME/.cargo/env"
 
-figlet ToleMariam
+#figlet ToleMariam
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

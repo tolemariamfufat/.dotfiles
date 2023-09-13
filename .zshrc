@@ -136,3 +136,5 @@ alias z='zellij'
 figlet ToleMariam
 
 #spawnOnce "notify-log $HOME/.log/notify.log"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
