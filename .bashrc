@@ -62,3 +62,5 @@ alias z='zellij'
 #figlet ToleMariam
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
