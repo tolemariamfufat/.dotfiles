@@ -133,11 +133,11 @@ unset __conda_setup
 alias z='zellij'
 
 # while true; do printf '%s\r' "$(date)"; done
-#figlet ToleMariam
+neofetch
 
 #spawnOnce "notify-log $HOME/.log/notify.log"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
-neofetch
+export PATH="$HOME/.emacs.d/bin:$PATH" 
+alias emacs="emacsclient -c -a 'emacs'"
