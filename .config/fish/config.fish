@@ -155,4 +155,39 @@ alias z='zellij'
 # !! Contents within this block are managed by 'conda init' !!
 eval /home/to/anaconda3/bin/conda "shell.fish" hook $argv | source
 # <<< conda initialize <<<
+#vterm
+if [ "$INSIDE_EMACS" = vterm ]
+    function clear
+        vterm_printf "51;Evterm-clear-scrollback"
+        tput clear
+    end
+end
+
+function fish_title
+    hostname
+    echo ":"
+    prompt_pwd
+end
+
+function vterm_prompt_end
+    vterm_printf '51;A'(whoami)'@'(hostname)':'(pwd)
+end
+#printf
+#
+function vterm_cmd --description 'Run an Emacs command among the ones been defined in vterm-eval-cmds.'
+    set -l vterm_elisp ()
+    for arg in $argv
+        set -a vterm_elisp (printf '"%s" ' (string replace -a -r '([\\\\"])' '\\\\\\\\$1' $arg))
+    end
+    vterm_printf '51;E'(string join '' $vterm_elisp)
+end
+
+function find_file
+    set -q argv[1]; or set argv[1] "."
+    vterm_cmd find-file (realpath "$argv")
+end
+
+function say
+    vterm_cmd message "%s" "$argv"
+end
 #figlet ToleMariam
