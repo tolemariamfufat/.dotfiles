@@ -1,1 +1,173 @@
+#+TITLE: Bashrc Config
+#+PROPERTY: tangle .bashrc
 
+* Source global definitions
+
+#+begin_src bash
+
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+#+end_src
+
+* User specific environment
+#+begin_src bash
+
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+#+end_src
+
+Uncomment the following line if you don't like systemctl's auto-paging feature:
+- export SYSTEMD_PAGER=
+
+* User specific aliases and functions
+
+#+begin_src bash
+
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+#+end_src
+
+unset rc
+* Git
+
+#+begin_src bash
+
+gcom() {
+	git add .
+	git commit -m "$1"
+}
+lazyg() {
+	git add .
+	git commit -m "$1"
+	git push
+}
+
+#+end_src
+
+* Conda
+ >>> conda initialize >>>
+ !! Contents within this block are managed by 'conda init' !!
+
+ #+begin_src bash
+
+__conda_setup="$('/home/to/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+	eval "$__conda_setup"
+else
+	if [ -f "/home/to/anaconda3/etc/profile.d/conda.sh" ]; then
+		. "/home/to/anaconda3/etc/profile.d/conda.sh"
+	else
+		export PATH="/home/to/anaconda3/bin:$PATH"
+	fi
+fi
+unset __conda_setup
+
+#+end_src
+
+ <<< conda initialize <<<
+
+* Zellij
+
+ #+begin_src bsah
+
+alias z='zellij'
+
+#+end_src
+
+* Cargo
+
+#+begin_src bash
+
+
+. "$HOME/.cargo/env"
+
+#+end_src
+
+* Figlet
+
+#figlet ToleMariam
+
+* Fzf
+
+#+begin_src bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#+end_src
+
+* Doom-Emacs
+#+begin_src bash
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+#+end_src
+
+* Vterm
+
+#+begin_src bash
+
+vterm_printf() {
+	if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
+		# Tell tmux to pass the escape sequences through
+		printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+	elif [ "${TERM%%-*}" = "screen" ]; then
+		# GNU screen (screen, screen-256color, screen-256color-bce)
+		printf "\eP\e]%s\007\e\\" "$1"
+	else
+		printf "\e]%s\e\\" "$1"
+	fi
+}
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+	function clear() {
+		vterm_printf "51;Evterm-clear-scrollback"
+		tput clear
+	}
+fi
+
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }"'echo -ne "\033]0;${HOSTNAME}:${PWD}\007"'
+
+vterm_prompt_end() {
+	vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+PS1=$PS1'\[$(vterm_prompt_end)\]'
+
+vterm_cmd() {
+	local vterm_elisp
+	vterm_elisp=""
+	while [ $# -gt 0 ]; do
+		vterm_elisp="$vterm_elisp""$(printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')")"
+		shift
+	done
+	vterm_printf "51;E$vterm_elisp"
+}
+find_file() {
+	vterm_cmd find-file "$(realpath "${@:-.}")"
+}
+
+say() {
+	vterm_cmd message "%s" "$*"
+}
+
+open_file_below() {
+	vterm_cmd find-file-below "$(realpath "${@:-.}")"
+}
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]] &&
+	[[ -n ${EMACS_VTERM_PATH} ]] &&
+	[[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh ]]; then
+	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh
+fi
+
+#+end_src
