@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="fino"
+# ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -133,7 +133,7 @@ unset __conda_setup
 alias z='zellij'
 
 # while true; do printf '%s\r' "$(date)"; done
-#neofetch
+neofetch
 
 #spawnOnce "notify-log $HOME/.log/notify.log"
 
@@ -187,3 +187,7 @@ say() {
 open_file_below() {
     vterm_cmd find-file-below "$(realpath "${@:-.}")"
 }
+
+# ~/.zshrc
+eval "$(starship init zsh)"
+

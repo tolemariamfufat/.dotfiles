@@ -116,3 +116,9 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]] &&
 	[[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh ]]; then
 	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh
 fi
+
+# ~/.bashrc
+
+eval "$(starship init bash)"
+
+
