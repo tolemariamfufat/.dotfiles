@@ -191,3 +191,4 @@ function say
     vterm_cmd message "%s" "$argv"
 end
 #figlet ToleMariam
+starship init fish | source
