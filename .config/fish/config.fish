@@ -149,12 +149,6 @@ alias clear='echo -en "\x1b[2J\x1b[1;1H" ; echo; echo; seq 1 (tput cols) | sort 
 
 
 alias z='zellij'
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /home/to/anaconda3/bin/conda "shell.fish" hook $argv | source
-# <<< conda initialize <<<
 #vterm
 if [ "$INSIDE_EMACS" = vterm ]
     function clear
