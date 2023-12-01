@@ -119,7 +119,7 @@ lazyg() {
 alias z='zellij'
 
 # while true; do printf '%s\r' "$(date)"; done
-neofetch
+#neofetch
 
 #spawnOnce "notify-log $HOME/.log/notify.log"
 
