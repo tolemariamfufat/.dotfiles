@@ -187,3 +187,4 @@ end
 #figlet ToleMariam
 #starship init fish | source
 neofetch
+

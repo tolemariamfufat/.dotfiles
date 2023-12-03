@@ -177,3 +177,4 @@ open_file_below() {
 # ~/.zshrc
 eval "$(starship init zsh)"
 
+

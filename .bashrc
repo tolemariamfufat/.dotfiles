@@ -107,4 +107,6 @@ fi
 
 eval "$(starship init bash)"
 
+HELIX_RUNTIME=~/src/helix/runtime
 
+export PATH=”$HOME/.cargo/bin:$PATH”
