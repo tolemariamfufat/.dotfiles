@@ -4,7 +4,7 @@
 #   | | (_) | |  __/ |  | | (_| | |  | | (_| | | | | | |
 #   |_|\___/|_|\___|_|  |_|\__,_|_|  |_|\__,_|_| |_| |_|
 
-set -U fish_greeting ""
+set -U fish_greeting " "
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -186,5 +186,5 @@ function say
 end
 #figlet ToleMariam
 #starship init fish | source
-neofetch
+#neofetch
 
