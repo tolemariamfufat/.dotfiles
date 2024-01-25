@@ -187,4 +187,5 @@ end
 #figlet ToleMariam
 #starship init fish | source
 #neofetch
-
+cowsay "I Am that I Am ...I Am the way, the truth and the life. No one comes to the Father but through Me... Indeed, the water I give them will become in them a spring of water welling up to eternal life."
+#cowsay "Jesus is coming with the clouds, and everyone will see him, even those who stabbed him. And all peoples of the earth will cry loudly because of him."
