@@ -21,8 +21,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -118,9 +116,10 @@ lazyg() {
 
 alias z='zellij'
 
-# while true; do printf '%s\r' "$(date)"; done
 #neofetch
-
+# while true; do printf '%s\r' "$(date)"; donec
+macchina
+#cowsay "I Am that I Am ...I Am the way, the truth, and the life. No one comes to the Father but through Me."
 #spawnOnce "notify-log $HOME/.log/notify.log"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -176,4 +175,5 @@ open_file_below() {
 
 # ~/.zshrc
 #eval "$(starship init zsh)"
+
 
